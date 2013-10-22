@@ -38,8 +38,6 @@ name "jboss-eap-6_1_1-pip"
 description "JBoss 6 EAP install"
 run_list [
     "recipe[jboss-eap]",
-    "recipe[apache-ssl-pip]",
-    "recipe[proxy-8080-ssl]",
     ]
 
 default_attributes(
