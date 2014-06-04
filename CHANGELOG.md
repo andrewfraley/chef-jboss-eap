@@ -3,9 +3,14 @@ jboss-eap CHANGELOG
 
 This file is used to list changes made in each version of the jboss-eap cookbook.
 
-0.1.0
+2.0.0
 -----
-- [your_name] - Initial release of jboss-eap
+- Switched to ark cookbook to handle installation
+- Refactored admin account creation
+
+1.0.0
+-----
+- [Andy Fraley] - Initial release of jboss-eap
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
