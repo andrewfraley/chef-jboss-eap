@@ -52,7 +52,7 @@ include_recipe "jboss-eap"
 #### Example role: 
 
 ```ruby
-name "jboss-eap-6_1_1-pip"
+name "jboss-eap-6"
 description "JBoss 6 EAP install"
 run_list [
     "recipe[jboss-eap]",
@@ -61,7 +61,7 @@ run_list [
 default_attributes(
   "jboss-eap" => {
       "install_path" => "/opt",
-    "package_url" => "https://yourserver.local/jboss/jboss-eap-6.1.tar.gz",
+    "package_url" => "http://example.com/jboss-eap-6.2.0.zip",
     "checksum" => "0ef5d62a660fea46e0c204a9f9f35ad4",
         "version" => "6.1.1",
         "admin_user" => "youradmin",
