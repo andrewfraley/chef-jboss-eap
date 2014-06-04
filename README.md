@@ -63,7 +63,7 @@ default_attributes(
       "install_path" => "/opt",
     "package_url" => "http://example.com/jboss-eap-6.2.0.zip",
     "checksum" => "0ef5d62a660fea46e0c204a9f9f35ad4",
-        "version" => "6.1.1",
+        "version" => "6.2.0",
         "admin_user" => "youradmin",
         "admin_passwd" => "ZYxalFHy-7A",
         "start_on_boot" => true
