@@ -6,7 +6,7 @@ This file is used to list changes made in each version of the jboss-eap cookbook
 2.0.0
 -----
 - Switched to ark cookbook to handle installation
-- Refactored admin account creation
+- Refactored admin account creation and log directory management
 
 1.0.0
 -----

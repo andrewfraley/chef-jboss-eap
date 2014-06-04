@@ -7,6 +7,7 @@ This cookbook installs JBoss EAP 6 from a tar.gz and would probably work with JB
 
 Requirements
 ------------
+- `opscode ark cookbook` - https://github.com/opscode-cookbooks/ark
 - `java` - Not managed by this cookbook
 - `JBoss EAP 6` Download the zip package "Red Hat JBoss Enterprise Application Platform 6.2.0" from [RHN](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=appplatform&version=6.1.1) and host on your own server
 
