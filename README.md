@@ -15,6 +15,8 @@ Attributes
 ----------
 * `node['jboss-eap']['version']` - used for versioned directory name (Default: 6.2.0)
 * `node['jboss-eap']['install_path']` - Base directory that will hold the versioned jboss directory and symlink (Default: /opt)
+* `node['jboss-eap']['symlink']` - Name of the symlink that points to the current versioned jboss directory (Default: jboss)
+* `node['jboss-eap']['config_dir']` - Directory that holds the jboss-as.conf file (Default: /etc/jboss-as)
 * `node['jboss-eap']['package_url']` - Url to obtain JBoss package
 * `node['jboss-eap']['checksum']` - sha256sum of package_url file
 * `node['jboss-eap']['log_dir']` - Directory to hold JBoss logs (Default: /var/log/jboss)
