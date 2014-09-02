@@ -1,3 +1,5 @@
+include_recipe "ark"
+
 jboss_user = node['jboss-eap']['jboss_user']
 jboss_group = node['jboss-eap']['jboss_group']
 
@@ -7,7 +9,7 @@ user node['jboss-eap']['jboss_user'] do
 end
 
 # Grab and unpack jboss package
-ark "jboss" do
+ark node['jboss-eap']['symlink'] do
 	url node['jboss-eap']['package_url']
 	checksum node['jboss-eap']['checksum']
 	version node['jboss-eap']['version']
@@ -20,14 +22,14 @@ end
 
 
 # Init script config dir
-directory "/etc/jboss-as" do
+directory node['jboss-eap']['config_dir'] do
 	owner 'root'
 	group 'root'
 	mode 00755
 end
 
 # Init script config file
-template '/etc/jboss-as/jboss-as.conf' do
+template "#{node['jboss-eap']['config_dir']}/jboss-as.conf" do
   source    'jboss-as.conf.erb'
   owner 'root'
   group 'root'
@@ -43,7 +45,7 @@ cookbook_file "/etc/init.d/jboss" do
 end
 
 # Manage log directory
-default_log_dir = "#{node['jboss-eap']['install_path']}/jboss/standalone/log"
+default_log_dir = "#{node['jboss-eap']['jboss_home']}/standalone/log"
 
 # Delete default log directory if it's not a symlink and not the same as the specified log_dir
 directory default_log_dir do
@@ -71,8 +73,8 @@ end
 # Add admin user if the user is not found in mgmt-users.properties
 if node['jboss-eap']['admin_user'] && node['jboss-eap']['admin_passwd']
 	execute "add_admin_user" do
-		command "#{node['jboss-eap']['install_path']}/jboss/bin/add-user.sh --silent -u #{node['jboss-eap']['admin_user']} -p #{node['jboss-eap']['admin_passwd']}"
-		not_if "grep ^#{node['jboss-eap']['admin_user']} #{node['jboss-eap']['install_path']}/jboss/standalone/configuration/mgmt-users.properties"
+		command "#{node['jboss-eap']['jboss_home']}/bin/add-user.sh --silent -u #{node['jboss-eap']['admin_user']} -p #{node['jboss-eap']['admin_passwd']}"
+		not_if "grep ^#{node['jboss-eap']['admin_user']} #{node['jboss-eap']['jboss_home']}/standalone/configuration/mgmt-users.properties"
 	end
 end
 

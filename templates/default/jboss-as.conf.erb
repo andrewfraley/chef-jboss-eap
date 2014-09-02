@@ -18,4 +18,4 @@ JBOSS_USER=<%= node['jboss-eap']['jboss_user'] %>
 
 JBOSS_CONSOLE_LOG=<%= "#{node['jboss-eap']['log_dir']}/console.log" %>
 
-JBOSS_HOME=<%= "#{node['jboss-eap']['install_path']}/jboss" %>
+JBOSS_HOME=<%= "#{node['jboss-eap']['jboss_home']}" %>
