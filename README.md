@@ -73,7 +73,13 @@ default_attributes(
   
 )
 ```
-
+#### jboss_java_option defintion
+Use this to add JAVA_OPTS options to standalone.conf
+```
+jboss_java_option "logging fix" do
+    option "-Dorg.jboss.as.logging.per-deployment=false"
+end
+```
 
 
 License and Authors
