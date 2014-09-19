@@ -3,6 +3,10 @@ jboss-eap CHANGELOG
 
 This file is used to list changes made in each version of the jboss-eap cookbook.
 
+2.1.0
+-----
+- Added definition to add java options to standalone.conf
+
 2.0.0
 -----
 - Switched to ark cookbook to handle installation
