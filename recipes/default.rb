@@ -25,7 +25,7 @@ end
 directory node['jboss-eap']['config_dir'] do
 	owner 'root'
 	group 'root'
-	mode 00755
+	mode "0755"
 end
 
 # Init script config file
@@ -33,13 +33,13 @@ template "#{node['jboss-eap']['config_dir']}/jboss-as.conf" do
   source    'jboss-as.conf.erb'
   owner 'root'
   group 'root'
-  mode 00644
+  mode "0644"
 end
 
 # Init script
 cookbook_file "/etc/init.d/jboss" do
   source "jboss-as-standalone-init.sh"
-  mode 0755
+  mode "0755"
   owner "root"
   group "root"
 end
@@ -58,7 +58,7 @@ end
 directory node['jboss-eap']['log_dir'] do
 	owner node['jboss-eap']['jboss_user']
 	group node['jboss-eap']['jboss_group']
-	mode 0775
+	mode "2775"
 end
 
 # Log directory symlink
@@ -88,6 +88,3 @@ service "jboss" do
 		action :disable
 	end
 end
-
-
-

@@ -3,6 +3,10 @@ jboss-eap CHANGELOG
 
 This file is used to list changes made in each version of the jboss-eap cookbook.
 
+2.1.1
+-----
+- Adjusted log directory permissions to be 2775
+
 2.1.0
 -----
 - Added definition to add java options to standalone.conf
