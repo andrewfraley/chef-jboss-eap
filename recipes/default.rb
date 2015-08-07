@@ -78,13 +78,18 @@ if node['jboss-eap']['admin_user'] && node['jboss-eap']['admin_passwd']
 	end
 end
 
+# Define the actions for the `jboss` service
+if node['jboss-eap']['start_on_boot']
+  action_array = [ :enable ]
+else
+  action_array = [ :disable ]
+end
 
+if node['jboss-eap']['start_on_converge']
+  action_array << :start
+end
 
-# Enable service on boot if requested
+# Start and Enable the jboss service on boot if requested
 service "jboss" do
-	if node['jboss-eap']['start_on_boot']
-		action :enable
-	else
-		action :disable
-	end
+  action action_array
 end
