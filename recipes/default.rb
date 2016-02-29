@@ -1,8 +1,5 @@
 include_recipe "ark"
 
-jboss_user = node['jboss-eap']['jboss_user']
-jboss_group = node['jboss-eap']['jboss_group']
-
 # Create JBoss User
 user node['jboss-eap']['jboss_user'] do
 	action :create
@@ -73,7 +70,7 @@ end
 # Add admin user if the user is not found in mgmt-users.properties
 if node['jboss-eap']['admin_user'] && node['jboss-eap']['admin_passwd']
 	execute "add_admin_user" do
-		command "#{node['jboss-eap']['jboss_home']}/bin/add-user.sh --silent -u #{node['jboss-eap']['admin_user']} -p #{node['jboss-eap']['admin_passwd']}"
+		command "#{node['jboss-eap']['jboss_home']}/bin/add-user.sh --silent -u #{node['jboss-eap']['admin_user']} -p \"#{node['jboss-eap']['admin_passwd']}\""
 		not_if "grep ^#{node['jboss-eap']['admin_user']} #{node['jboss-eap']['jboss_home']}/standalone/configuration/mgmt-users.properties"
 	end
 end
