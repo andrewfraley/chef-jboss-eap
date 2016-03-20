@@ -37,8 +37,8 @@ template "#{node['jboss-eap']['config_dir']}/jboss-as.conf" do
 end
 
 # Init script
-cookbook_file "/etc/init.d/jboss" do
-  source "jboss-as-standalone-init.sh"
+template "/etc/init.d/jboss" do
+  source "jboss-as-standalone-init.sh.erb"
   mode "0755"
   owner "root"
   group "root"
