@@ -6,7 +6,7 @@
 # description: JBoss AS Standalone
 # processname: standalone
 # pidfile: /var/run/jboss-as/jboss-as-standalone.pid
-# config: /etc/jboss-as/jboss-as.conf
+# config: <%= "#{node['jboss-eap']['config_dir']}" %>/jboss-as.conf
 
 # Source function library.
 . /etc/init.d/functions
@@ -17,7 +17,7 @@ export JAVA_HOME
 
 # Load JBoss AS init.d configuration.
 if [ -z "$JBOSS_CONF" ]; then
-  JBOSS_CONF="/etc/jboss-as/jboss-as.conf"
+  JBOSS_CONF="<%= "#{node['jboss-eap']['config_dir']}" %>/jboss-as.conf"
 fi
 
 [ -r "$JBOSS_CONF" ] && . "${JBOSS_CONF}"
