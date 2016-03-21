@@ -12,3 +12,4 @@ default['jboss-eap']['jboss_group'] = 'jboss'
 default['jboss-eap']['admin_user'] = nil
 default['jboss-eap']['admin_passwd'] = nil # Note the password has to be >= 8 characters, one numeric, one special
 default['jboss-eap']['start_on_boot'] = false
+default['jboss-eap']['start_on_converge'] = false
