@@ -3,6 +3,8 @@ include_recipe "ark"
 # Create JBoss User
 user node['jboss-eap']['jboss_user'] do
 	action :create
+	manage_home node['jboss-eap']['manage_home']
+	home node['jboss-eap']['jboss_user_home']
 end
 
 # Grab and unpack jboss package
