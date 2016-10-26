@@ -21,10 +21,13 @@ Attributes
 * `node['jboss-eap']['checksum']` - sha256sum of package_url file
 * `node['jboss-eap']['log_dir']` - Directory to hold JBoss logs (Default: /var/log/jboss)
 * `node['jboss-eap']['jboss_user']` - User to run JBoss as (Default: jboss)
+* `node['jboss-eap']['jboss_user_home']` - The location of the jboss home directory
 * `node['jboss-eap']['jboss_group']` - Group owner of JBoss (Default: jboss)
+* `node['jboss-eap']['manage_home']` - If used with :create action, the user's home directory is created. If used with :modify, the user's home directory is moved. See [https://docs.chef.io/resource_user.html](https://docs.chef.io/resource_user.html) for more information. (Default: true)
 * `node['jboss-eap']['admin_user']` - Management console username (Does nothing if not set)
 * `node['jboss-eap']['admin_passwd']` - Management console user passwd (Does nothing if not set) # Note the password has to be >= 8 characters, one numeric, one special
 * `node['jboss-eap']['start_on_boot']` - enables services (Default: false)
+
 
 Usage
 -----
